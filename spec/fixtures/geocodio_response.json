@@ -1,0 +1,513 @@
+{
+  "results": [
+    {
+      "query": "2200 University Ave, Berkeley, CA 94704",
+      "response": {
+        "input": {
+          "address_components": {
+            "number": "2200",
+            "street": "University",
+            "suffix": "Ave",
+            "formatted_street": "University Ave",
+            "city": "Berkeley",
+            "state": "CA",
+            "zip": "94704",
+            "country": "US"
+          },
+          "formatted_address": "2200 University Ave, Berkeley, CA 94704"
+        },
+        "results": [
+          {
+            "stable_address_key": "gcod_usnbc8dlygz8vjq5qjr8k4zdaxcl3",
+            "address_components": {
+              "number": "2160",
+              "street": "University",
+              "suffix": "Ave",
+              "formatted_street": "University Ave",
+              "city": "Berkeley",
+              "county": "Alameda County",
+              "state": "CA",
+              "zip": "94704",
+              "country": "US"
+            },
+            "address_lines": [
+              "2160 University Ave",
+              "",
+              "Berkeley, CA 94704"
+            ],
+            "formatted_address": "2160 University Ave, Berkeley, CA 94704",
+            "location": {
+              "lat": 37.871997,
+              "lng": -122.267013
+            },
+            "accuracy": 0.86,
+            "accuracy_type": "nearest_rooftop_match",
+            "match_type": "building_centroid",
+            "source": "Alameda (Alameda County)",
+            "fields": {
+              "congressional_districts": [
+                {
+                  "name": "Congressional District 12",
+                  "district_number": 12,
+                  "ocd_id": "ocd-division/country:us/state:ca/cd:12",
+                  "congress_number": "119th",
+                  "congress_years": "2025-2027",
+                  "proportion": 1,
+                  "current_legislators": [
+                    {
+                      "type": "representative",
+                      "seniority": null,
+                      "bio": {
+                        "last_name": "Simon",
+                        "first_name": "Lateefah",
+                        "birthday": "1977-01-29",
+                        "gender": "F",
+                        "party": "Democrat",
+                        "photo_url": "https://www.congress.gov/img/member/67745f940b34857ecc909197_200.jpg",
+                        "photo_attribution": "Image courtesy of the Member"
+                      },
+                      "contact": {
+                        "url": "https://simon.house.gov",
+                        "address": "1023 Longworth House Office Building Washington DC 20515-0512",
+                        "phone": "202-225-2661",
+                        "contact_form": null
+                      },
+                      "social": {
+                        "rss_url": null,
+                        "twitter": "RepLSimon",
+                        "facebook": "RepLSimon",
+                        "youtube": null,
+                        "youtube_id": null
+                      },
+                      "references": {
+                        "bioguide_id": "S001231",
+                        "thomas_id": null,
+                        "opensecrets_id": "N00052195",
+                        "lis_id": null,
+                        "cspan_id": null,
+                        "govtrack_id": "456974",
+                        "votesmart_id": "213551",
+                        "ballotpedia_id": "Lateefah Simon",
+                        "washington_post_id": null,
+                        "icpsr_id": null,
+                        "wikipedia_id": "Lateefah Simon"
+                      },
+                      "source": "Legislator data collected by the @unitedstates project (https://github.com/unitedstates/)"
+                    },
+                    {
+                      "type": "senator",
+                      "seniority": "senior",
+                      "bio": {
+                        "last_name": "Padilla",
+                        "first_name": "Alejandro",
+                        "birthday": "1973-03-22",
+                        "gender": "M",
+                        "party": "Democrat",
+                        "photo_url": "https://www.congress.gov/img/member/p000145_200.jpg",
+                        "photo_attribution": "Courtesy U.S. Senate Historical Office (http://www.senate.gov/artandhistory/history/common/generic/Photo_Collection_of_the_Senate_Historical_Office.htm)"
+                      },
+                      "contact": {
+                        "url": "https://www.padilla.senate.gov",
+                        "address": "331 Hart Senate Office Building Washington DC 20510",
+                        "phone": "202-224-3553",
+                        "contact_form": "https://www.padilla.senate.gov/contact/"
+                      },
+                      "social": {
+                        "rss_url": null,
+                        "twitter": "SenAlexPadilla",
+                        "facebook": "SenAlexPadilla",
+                        "youtube": null,
+                        "youtube_id": null
+                      },
+                      "references": {
+                        "bioguide_id": "P000145",
+                        "thomas_id": null,
+                        "opensecrets_id": "N00047888",
+                        "lis_id": "S413",
+                        "cspan_id": null,
+                        "govtrack_id": "456856",
+                        "votesmart_id": "59742",
+                        "ballotpedia_id": "Alex Padilla",
+                        "washington_post_id": null,
+                        "icpsr_id": null,
+                        "wikipedia_id": "Alex Padilla"
+                      },
+                      "source": "Legislator data collected by the @unitedstates project (https://github.com/unitedstates/)"
+                    },
+                    {
+                      "type": "senator",
+                      "seniority": "junior",
+                      "bio": {
+                        "last_name": "Schiff",
+                        "first_name": "Adam",
+                        "birthday": "1960-06-22",
+                        "gender": "M",
+                        "party": "Democrat",
+                        "photo_url": "https://www.congress.gov/img/member/677d870dfdb6cf36bbb649b3_200.jpg",
+                        "photo_attribution": "Official U.S. Senate Photo"
+                      },
+                      "contact": {
+                        "url": "https://www.schiff.senate.gov",
+                        "address": "112 Hart Senate Office Building Washington DC 20510",
+                        "phone": "202-224-3841",
+                        "contact_form": null
+                      },
+                      "social": {
+                        "rss_url": null,
+                        "twitter": "SenAdamSchiff",
+                        "facebook": "SenAdamSchiff",
+                        "youtube": "adamschiff",
+                        "youtube_id": null
+                      },
+                      "references": {
+                        "bioguide_id": "S001150",
+                        "thomas_id": "01635",
+                        "opensecrets_id": "N00009585",
+                        "lis_id": "S427",
+                        "cspan_id": "90167",
+                        "govtrack_id": "400361",
+                        "votesmart_id": "9489",
+                        "ballotpedia_id": "Adam Schiff",
+                        "washington_post_id": null,
+                        "icpsr_id": "20104",
+                        "wikipedia_id": "Adam Schiff"
+                      },
+                      "source": "Legislator data collected by the @unitedstates project (https://github.com/unitedstates/)"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "stable_address_key": "gcod_usnbc8dlygz8vjq533tz8xp4fege4",
+            "address_components": {
+              "number": "2158",
+              "street": "University",
+              "suffix": "Ave",
+              "formatted_street": "University Ave",
+              "city": "Berkeley",
+              "county": "Alameda County",
+              "state": "CA",
+              "zip": "94704",
+              "country": "US"
+            },
+            "address_lines": [
+              "2158 University Ave",
+              "",
+              "Berkeley, CA 94704"
+            ],
+            "formatted_address": "2158 University Ave, Berkeley, CA 94704",
+            "location": {
+              "lat": 37.871997,
+              "lng": -122.267013
+            },
+            "accuracy": 0.86,
+            "accuracy_type": "nearest_rooftop_match",
+            "match_type": "building_centroid",
+            "source": "Alameda (Alameda County)",
+            "fields": {
+              "congressional_districts": [
+                {
+                  "name": "Congressional District 12",
+                  "district_number": 12,
+                  "ocd_id": "ocd-division/country:us/state:ca/cd:12",
+                  "congress_number": "119th",
+                  "congress_years": "2025-2027",
+                  "proportion": 1,
+                  "current_legislators": [
+                    {
+                      "type": "representative",
+                      "seniority": null,
+                      "bio": {
+                        "last_name": "Simon",
+                        "first_name": "Lateefah",
+                        "birthday": "1977-01-29",
+                        "gender": "F",
+                        "party": "Democrat",
+                        "photo_url": "https://www.congress.gov/img/member/67745f940b34857ecc909197_200.jpg",
+                        "photo_attribution": "Image courtesy of the Member"
+                      },
+                      "contact": {
+                        "url": "https://simon.house.gov",
+                        "address": "1023 Longworth House Office Building Washington DC 20515-0512",
+                        "phone": "202-225-2661",
+                        "contact_form": null
+                      },
+                      "social": {
+                        "rss_url": null,
+                        "twitter": "RepLSimon",
+                        "facebook": "RepLSimon",
+                        "youtube": null,
+                        "youtube_id": null
+                      },
+                      "references": {
+                        "bioguide_id": "S001231",
+                        "thomas_id": null,
+                        "opensecrets_id": "N00052195",
+                        "lis_id": null,
+                        "cspan_id": null,
+                        "govtrack_id": "456974",
+                        "votesmart_id": "213551",
+                        "ballotpedia_id": "Lateefah Simon",
+                        "washington_post_id": null,
+                        "icpsr_id": null,
+                        "wikipedia_id": "Lateefah Simon"
+                      },
+                      "source": "Legislator data collected by the @unitedstates project (https://github.com/unitedstates/)"
+                    },
+                    {
+                      "type": "senator",
+                      "seniority": "senior",
+                      "bio": {
+                        "last_name": "Padilla",
+                        "first_name": "Alejandro",
+                        "birthday": "1973-03-22",
+                        "gender": "M",
+                        "party": "Democrat",
+                        "photo_url": "https://www.congress.gov/img/member/p000145_200.jpg",
+                        "photo_attribution": "Courtesy U.S. Senate Historical Office (http://www.senate.gov/artandhistory/history/common/generic/Photo_Collection_of_the_Senate_Historical_Office.htm)"
+                      },
+                      "contact": {
+                        "url": "https://www.padilla.senate.gov",
+                        "address": "331 Hart Senate Office Building Washington DC 20510",
+                        "phone": "202-224-3553",
+                        "contact_form": "https://www.padilla.senate.gov/contact/"
+                      },
+                      "social": {
+                        "rss_url": null,
+                        "twitter": "SenAlexPadilla",
+                        "facebook": "SenAlexPadilla",
+                        "youtube": null,
+                        "youtube_id": null
+                      },
+                      "references": {
+                        "bioguide_id": "P000145",
+                        "thomas_id": null,
+                        "opensecrets_id": "N00047888",
+                        "lis_id": "S413",
+                        "cspan_id": null,
+                        "govtrack_id": "456856",
+                        "votesmart_id": "59742",
+                        "ballotpedia_id": "Alex Padilla",
+                        "washington_post_id": null,
+                        "icpsr_id": null,
+                        "wikipedia_id": "Alex Padilla"
+                      },
+                      "source": "Legislator data collected by the @unitedstates project (https://github.com/unitedstates/)"
+                    },
+                    {
+                      "type": "senator",
+                      "seniority": "junior",
+                      "bio": {
+                        "last_name": "Schiff",
+                        "first_name": "Adam",
+                        "birthday": "1960-06-22",
+                        "gender": "M",
+                        "party": "Democrat",
+                        "photo_url": "https://www.congress.gov/img/member/677d870dfdb6cf36bbb649b3_200.jpg",
+                        "photo_attribution": "Official U.S. Senate Photo"
+                      },
+                      "contact": {
+                        "url": "https://www.schiff.senate.gov",
+                        "address": "112 Hart Senate Office Building Washington DC 20510",
+                        "phone": "202-224-3841",
+                        "contact_form": null
+                      },
+                      "social": {
+                        "rss_url": null,
+                        "twitter": "SenAdamSchiff",
+                        "facebook": "SenAdamSchiff",
+                        "youtube": "adamschiff",
+                        "youtube_id": null
+                      },
+                      "references": {
+                        "bioguide_id": "S001150",
+                        "thomas_id": "01635",
+                        "opensecrets_id": "N00009585",
+                        "lis_id": "S427",
+                        "cspan_id": "90167",
+                        "govtrack_id": "400361",
+                        "votesmart_id": "9489",
+                        "ballotpedia_id": "Adam Schiff",
+                        "washington_post_id": null,
+                        "icpsr_id": "20104",
+                        "wikipedia_id": "Adam Schiff"
+                      },
+                      "source": "Legislator data collected by the @unitedstates project (https://github.com/unitedstates/)"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "stable_address_key": "gcod_usnbc8dlygz8vjq5geshq8ts87x79",
+            "address_components": {
+              "number": "2156",
+              "street": "University",
+              "suffix": "Ave",
+              "formatted_street": "University Ave",
+              "city": "Berkeley",
+              "county": "Alameda County",
+              "state": "CA",
+              "zip": "94704",
+              "country": "US"
+            },
+            "address_lines": [
+              "2156 University Ave",
+              "",
+              "Berkeley, CA 94704"
+            ],
+            "formatted_address": "2156 University Ave, Berkeley, CA 94704",
+            "location": {
+              "lat": 37.871997,
+              "lng": -122.267013
+            },
+            "accuracy": 0.86,
+            "accuracy_type": "nearest_rooftop_match",
+            "match_type": "building_centroid",
+            "source": "Alameda (Alameda County)",
+            "fields": {
+              "congressional_districts": [
+                {
+                  "name": "Congressional District 12",
+                  "district_number": 12,
+                  "ocd_id": "ocd-division/country:us/state:ca/cd:12",
+                  "congress_number": "119th",
+                  "congress_years": "2025-2027",
+                  "proportion": 1,
+                  "current_legislators": [
+                    {
+                      "type": "representative",
+                      "seniority": null,
+                      "bio": {
+                        "last_name": "Simon",
+                        "first_name": "Lateefah",
+                        "birthday": "1977-01-29",
+                        "gender": "F",
+                        "party": "Democrat",
+                        "photo_url": "https://www.congress.gov/img/member/67745f940b34857ecc909197_200.jpg",
+                        "photo_attribution": "Image courtesy of the Member"
+                      },
+                      "contact": {
+                        "url": "https://simon.house.gov",
+                        "address": "1023 Longworth House Office Building Washington DC 20515-0512",
+                        "phone": "202-225-2661",
+                        "contact_form": null
+                      },
+                      "social": {
+                        "rss_url": null,
+                        "twitter": "RepLSimon",
+                        "facebook": "RepLSimon",
+                        "youtube": null,
+                        "youtube_id": null
+                      },
+                      "references": {
+                        "bioguide_id": "S001231",
+                        "thomas_id": null,
+                        "opensecrets_id": "N00052195",
+                        "lis_id": null,
+                        "cspan_id": null,
+                        "govtrack_id": "456974",
+                        "votesmart_id": "213551",
+                        "ballotpedia_id": "Lateefah Simon",
+                        "washington_post_id": null,
+                        "icpsr_id": null,
+                        "wikipedia_id": "Lateefah Simon"
+                      },
+                      "source": "Legislator data collected by the @unitedstates project (https://github.com/unitedstates/)"
+                    },
+                    {
+                      "type": "senator",
+                      "seniority": "senior",
+                      "bio": {
+                        "last_name": "Padilla",
+                        "first_name": "Alejandro",
+                        "birthday": "1973-03-22",
+                        "gender": "M",
+                        "party": "Democrat",
+                        "photo_url": "https://www.congress.gov/img/member/p000145_200.jpg",
+                        "photo_attribution": "Courtesy U.S. Senate Historical Office (http://www.senate.gov/artandhistory/history/common/generic/Photo_Collection_of_the_Senate_Historical_Office.htm)"
+                      },
+                      "contact": {
+                        "url": "https://www.padilla.senate.gov",
+                        "address": "331 Hart Senate Office Building Washington DC 20510",
+                        "phone": "202-224-3553",
+                        "contact_form": "https://www.padilla.senate.gov/contact/"
+                      },
+                      "social": {
+                        "rss_url": null,
+                        "twitter": "SenAlexPadilla",
+                        "facebook": "SenAlexPadilla",
+                        "youtube": null,
+                        "youtube_id": null
+                      },
+                      "references": {
+                        "bioguide_id": "P000145",
+                        "thomas_id": null,
+                        "opensecrets_id": "N00047888",
+                        "lis_id": "S413",
+                        "cspan_id": null,
+                        "govtrack_id": "456856",
+                        "votesmart_id": "59742",
+                        "ballotpedia_id": "Alex Padilla",
+                        "washington_post_id": null,
+                        "icpsr_id": null,
+                        "wikipedia_id": "Alex Padilla"
+                      },
+                      "source": "Legislator data collected by the @unitedstates project (https://github.com/unitedstates/)"
+                    },
+                    {
+                      "type": "senator",
+                      "seniority": "junior",
+                      "bio": {
+                        "last_name": "Schiff",
+                        "first_name": "Adam",
+                        "birthday": "1960-06-22",
+                        "gender": "M",
+                        "party": "Democrat",
+                        "photo_url": "https://www.congress.gov/img/member/677d870dfdb6cf36bbb649b3_200.jpg",
+                        "photo_attribution": "Official U.S. Senate Photo"
+                      },
+                      "contact": {
+                        "url": "https://www.schiff.senate.gov",
+                        "address": "112 Hart Senate Office Building Washington DC 20510",
+                        "phone": "202-224-3841",
+                        "contact_form": null
+                      },
+                      "social": {
+                        "rss_url": null,
+                        "twitter": "SenAdamSchiff",
+                        "facebook": "SenAdamSchiff",
+                        "youtube": "adamschiff",
+                        "youtube_id": null
+                      },
+                      "references": {
+                        "bioguide_id": "S001150",
+                        "thomas_id": "01635",
+                        "opensecrets_id": "N00009585",
+                        "lis_id": "S427",
+                        "cspan_id": "90167",
+                        "govtrack_id": "400361",
+                        "votesmart_id": "9489",
+                        "ballotpedia_id": "Adam Schiff",
+                        "washington_post_id": null,
+                        "icpsr_id": "20104",
+                        "wikipedia_id": "Adam Schiff"
+                      },
+                      "source": "Legislator data collected by the @unitedstates project (https://github.com/unitedstates/)"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "_warnings": [
+          "There is a newer API version available, please consider upgrading to v2. See changelog here: https://www.geocod.io/docs/#changelog"
+        ]
+      }
+    }
+  ]
+}
