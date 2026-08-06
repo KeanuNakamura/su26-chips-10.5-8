@@ -25,26 +25,29 @@ require 'rails_helper'
 
 RSpec.describe Representative do
   describe '.find_rep' do
-    it 'does not create a duplicate representative' do
-      official = {
+    let(:official) do
+      {
         'name' => 'Jane Doe',
         'party' => 'Democrat',
         'photo_url' => 'https://example.com/a.png'
       }
+    end
 
-      Representative.find_rep(
-        official,
+    let(:args) do
+      {
         ocdid: '412345',
         title: 'representative'
-      )
+      }
+    end
 
-      expect {
-        Representative.find_rep(
-          official,
-          ocdid: '412345',
-          title: 'representative'
-        )
-      }.not_to change(Representative, :count)
+    before do
+      described_class.find_rep(official, **args)
+    end
+
+    it 'does not create a duplicate representative' do
+      expect do
+        described_class.find_rep(official, **args)
+      end.not_to change(described_class, :count)
     end
   end
 end
