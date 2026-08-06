@@ -41,6 +41,7 @@ class Representative < ApplicationRecord
       # Rails.logger.debug official
       # official.dig('bio', 'party')
       ocdid = official['govtrack_id']
+       
       reps << Representative.find_rep(official, ocdid: ocdid, title: title)
     end
     reps
