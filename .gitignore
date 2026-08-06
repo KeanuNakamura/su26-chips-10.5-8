@@ -80,3 +80,5 @@ app/assets/builds/*
 node_modules
 
 /config/master.key
+
+create_iter1_issues.sh
