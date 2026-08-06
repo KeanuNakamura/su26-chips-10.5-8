@@ -23,5 +23,28 @@ require 'rails_helper'
 # You should add your own test cases.
 # We recommend creating a file for each model in the database.
 
-# RSpec.describe Representative do
-# end
+RSpec.describe Representative do
+  describe '.find_rep' do
+    it 'does not create a duplicate representative' do
+      official = {
+        'name' => 'Jane Doe',
+        'party' => 'Democrat',
+        'photo_url' => 'https://example.com/a.png'
+      }
+
+      Representative.find_rep(
+        official,
+        ocdid: '412345',
+        title: 'representative'
+      )
+
+      expect {
+        Representative.find_rep(
+          official,
+          ocdid: '412345',
+          title: 'representative'
+        )
+      }.not_to change(Representative, :count)
+    end
+  end
+end
