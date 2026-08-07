@@ -23,5 +23,29 @@ require 'rails_helper'
 # You should add your own test cases.
 # We recommend creating a file for each model in the database.
 
-# RSpec.describe Representative do
-# end
+RSpec.describe Representative do
+  describe '.find_rep' do
+    let(:official) do
+      {
+        'name' => 'Jane Doe'
+      }
+    end
+
+    let(:args) do
+      {
+        ocdid: '412345',
+        title: 'representative'
+      }
+    end
+
+    before do
+      described_class.find_rep(official, **args)
+    end
+
+    it 'does not create a duplicate representative' do
+      expect do
+        described_class.find_rep(official, **args)
+      end.not_to change(described_class, :count)
+    end
+  end
+end

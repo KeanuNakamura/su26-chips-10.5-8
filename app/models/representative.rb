@@ -41,15 +41,17 @@ class Representative < ApplicationRecord
       # Rails.logger.debug official
       # official.dig('bio', 'party')
       ocdid = official['govtrack_id']
+
       reps << Representative.find_rep(official, ocdid: ocdid, title: title)
     end
     reps
   end
 
   def self.find_rep(official, title: '', ocdid: '')
-    rep = Representative.create({ name: official['name'], ocdid: ocdid,
-      title: title, party: official['party'], photo_url: official['photo_url'] })
-    rep.save
+    Representative.find_or_create_by(ocdid: ocdid) do |rep|
+      rep.name = official['name']
+      rep.title = title
+    end
   end
 
   def update_from_geocodio(official)
