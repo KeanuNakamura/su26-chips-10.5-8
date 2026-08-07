@@ -27,9 +27,7 @@ RSpec.describe Representative do
   describe '.find_rep' do
     let(:official) do
       {
-        'name' => 'Jane Doe',
-        'party' => 'Democrat',
-        'photo_url' => 'https://example.com/a.png'
+        'name' => 'Jane Doe'
       }
     end
 
