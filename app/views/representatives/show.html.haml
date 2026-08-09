@@ -1,4 +1,37 @@
 .container-fluid.bg-light
   .row.text-center
     .col-12
-      %h1.text-center= @representative&.name
+      %h1.text-center= @representative.name
+
+      - if @representative.photo_url.present?
+        = image_tag @representative.photo_url,
+          alt:@representative.name, 
+          class:'img-fluid mb-3', 
+          style:'max-width: 250px;'
+
+      %p
+        %strong Office:
+        = @representative.title.presence || 'Not available'
+
+      %p
+        %strong Party:
+        = @representative.party.presence || 'Not available'
+
+      %p
+        %strong Address:
+        = @representative.address.presence || 'Not available'
+      %p
+        %strong Phone:
+        = @representative.phone.presence || 'Not available'
+
+      %p
+        %strong Website:
+        - if @representative.website.present?
+          = link_to @representative.website, @representative.website, target:'_blank'
+        - else
+          Not available
+      
+      %p
+        %strong Twitter:
+        = @representative.twitter.presence || 'Not available'
+
