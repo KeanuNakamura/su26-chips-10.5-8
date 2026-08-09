@@ -28,14 +28,14 @@ RSpec.describe Representative do
     let(:official) do
       {
         'name' => 'Jane Doe',
-        'type' => 'representative', 
-        'bio' => {'party' => 'Democrat'},
+        'type' => 'representative',
+        'bio' => { 'party' => 'Democrat' },
         'contact' => {
-          'address' =>'123 Test, California 2932', 
-          'phone' =>'123-456-7891',
+          'address' => '123 Test, California 2932',
+          'phone' => '123-456-7891',
           'url' => 'https://lol.blah.gov'
         },
-        'social' => {'twitter' => 'meow'}, 
+        'social' => { 'twitter' => 'meow' },
         'references' => {
           'govtrack_id' => '412345',
           'bioguide_id' => 'B00039'
@@ -59,6 +59,7 @@ RSpec.describe Representative do
         described_class.find_rep(official, **args)
       end.not_to change(described_class, :count)
     end
+
     it 'stores representative information from Geocodio' do
       rep = described_class.find_by(ocdid: '412345')
       expect(rep.name).to eq('Jane Doe')
@@ -69,6 +70,29 @@ RSpec.describe Representative do
       expect(rep.website).to eq('https://lol.blah.gov')
       expect(rep.twitter).to eq('meow')
       expect(rep.photo_url).to include('B00039')
+    end
+    it 'handles missing optional fields' do
+      official = {
+        'name' => 'Jane Doe', 
+        'type' => 'representative',
+        'references' => {
+          'govtrack_id' => '412345'
+        }
+      }
+
+      expect do 
+        described_class.find_rep(
+          official,
+          ocdid:'412345',
+          title: 'representative',
+        )
+      end.not_to raise_error
+
+      rep = described_class.find_by(ocdid: '412345')
+      expec(rep.party).to be_nil
+      expect(rep.phone).to be_nil
+      expect(rep.photo_url).to be_nil
+
     end
   end
 end
