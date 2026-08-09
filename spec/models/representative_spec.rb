@@ -71,28 +71,28 @@ RSpec.describe Representative do
       expect(rep.twitter).to eq('meow')
       expect(rep.photo_url).to include('B00039')
     end
+
     it 'handles missing optional fields' do
       official = {
-        'name' => 'Jane Doe', 
+        'name' => 'Jane Doe',
         'type' => 'representative',
         'references' => {
           'govtrack_id' => '412345'
         }
       }
 
-      expect do 
+      expect do
         described_class.find_rep(
           official,
-          ocdid:'412345',
-          title: 'representative',
+          ocdid: '412345',
+          title: 'representative'
         )
       end.not_to raise_error
 
       rep = described_class.find_by(ocdid: '412345')
-      expec(rep.party).to be_nil
+      expect(rep.party).to be_nil
       expect(rep.phone).to be_nil
       expect(rep.photo_url).to be_nil
-
     end
   end
 end
