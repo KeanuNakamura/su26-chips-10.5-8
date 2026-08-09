@@ -45,3 +45,13 @@ Scenario: The Representatives Page
 ## CS169: Add the fourth page here.
 # @a11y
 # Scenario: ...
+
+@a11y @iter1
+Scenario: The Events Page
+    Given I am on the events page
+    Then the page should be axe clean
+
+@a11y @iter1
+Scenario: The California State Map Page
+    Given I am on the state page for "CA"
+    Then the page should be axe clean
