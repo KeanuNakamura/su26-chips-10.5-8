@@ -71,9 +71,7 @@ class Representative < ApplicationRecord
     self.twitter = official.dig('social', 'twitter')
     bioguide_id = official.dig('references', 'bioguide_id')
     self.photo_url =
-    if bioguide_id.present?
-      "https://bioguide.congress.gov/bioguide/photo/#{bioguide_id[0]}/#{bioguide_id}.jpg"
-    end
+      ("https://bioguide.congress.gov/bioguide/photo/#{bioguide_id[0]}/#{bioguide_id}.jpg" if bioguide_id.present?)
     # TODO: store the address, phone and website
     save!
     self
