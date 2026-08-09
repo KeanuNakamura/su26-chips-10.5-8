@@ -5,15 +5,15 @@
 # Table name: representatives
 #
 #  id         :integer          not null, primary key
-#  city       :string
+#  address    :string
 #  name       :string
 #  ocdid      :string
 #  party      :string
+#  phone      :string
 #  photo_url  :string
-#  state      :string
-#  street     :string
 #  title      :string
-#  zip        :string
+#  twitter    :string
+#  website    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

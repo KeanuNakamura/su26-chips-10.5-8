@@ -5,9 +5,15 @@
 # Table name: representatives
 #
 #  id         :integer          not null, primary key
+#  address    :string
 #  name       :string
 #  ocdid      :string
+#  party      :string
+#  phone      :string
+#  photo_url  :string
 #  title      :string
+#  twitter    :string
+#  website    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -34,13 +40,13 @@ class Representative < ApplicationRecord
     fields = response['results'][0]['fields']
     @legislators = fields['congressional_districts'][0]['current_legislators']
 
-    @legislators.each_with_index do |official, _index|
+    @legislators.each do |official|
       official['name'] = "#{official.dig('bio', 'first_name')} #{official.dig('bio', 'last_name')}"
       title = official['type']
       # Inspect all the data that's there to make part 1 easier.
       # Rails.logger.debug official
       # official.dig('bio', 'party')
-      ocdid = official['govtrack_id']
+      ocdid = official.dig('references', 'govtrack_id')
 
       reps << Representative.find_rep(official, ocdid: ocdid, title: title)
     end
@@ -58,7 +64,7 @@ class Representative < ApplicationRecord
   def update_from_geocodio(official)
     self.title = official['type']
     self.ocdid = official.dig('references', 'govtrack_id')
-    self.party = officia.dig('bio', 'party')
+    self.party = official.dig('bio', 'party')
     self.address = official.dig('contact', 'address')
     self.phone = official.dig('contact', 'phone')
     self.website = official.dig('contact', 'url')
@@ -68,8 +74,6 @@ class Representative < ApplicationRecord
     if bioguide_id.present?
       "https://bioguide.congress.gov/bioguide/photo/#{bioguide_id[0]}/#{bioguide_id}.jpg"
     end
-    save!
-    self
     # TODO: store the address, phone and website
     save!
     self
