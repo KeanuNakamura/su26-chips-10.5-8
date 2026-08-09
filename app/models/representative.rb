@@ -48,17 +48,28 @@ class Representative < ApplicationRecord
   end
 
   def self.find_rep(official, title: '', ocdid: '')
-    Representative.find_or_create_by(ocdid: ocdid) do |rep|
-      rep.name = official['name']
-      rep.title = title
-    end
+    rep = Representative.find_or_initialize_by(ocdid: ocdid)
+    rep.name = official['name']
+    rep.title = title
+    rep.update_from_geocodio(official)
+    rep
   end
 
   def update_from_geocodio(official)
     self.title = official['type']
-    self.ocdid = official['govtrack_id']
-    self.party = official['party']
-    self.photo_url = official['photo_url']
+    self.ocdid = official.dig('references', 'govtrack_id')
+    self.party = officia.dig('bio', 'party')
+    self.address = official.dig('contact', 'address')
+    self.phone = official.dig('contact', 'phone')
+    self.website = official.dig('contact', 'url')
+    self.twitter = official.dig('social', 'twitter')
+    bioguide_id = official.dig('references', 'bioguide_id')
+    self.photo_url =
+    if bioguide_id.present?
+      "https://bioguide.congress.gov/bioguide/photo/#{bioguide_id[0]}/#{bioguide_id}.jpg"
+    end
+    save!
+    self
     # TODO: store the address, phone and website
     save!
     self
