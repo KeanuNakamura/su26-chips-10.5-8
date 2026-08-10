@@ -28,10 +28,12 @@
                   %label.form-check-label{ for: 'actionmap-events-filter-county-radio' } County
           .form-group.row
             .col-12
+              %label.visually-hidden{ for: 'actionmap-events-filter-state' } State
               = select_tag :state, options_for_select(ApplicationHelper.state_symbols_by_name),
                            { prompt: 'Select a state', class: 'form-control', id: 'actionmap-events-filter-state' }
           .form-group.row
             .col-12
+              %label.visually-hidden{ for: 'actionmap-events-filter-county' } County
               = select_tag :county, options_for_select([]),
                            { prompt: 'Select a county', class: 'form-control', id: 'actionmap-events-filter-county' }
           = submit_tag 'Filter by State', name: nil, class: 'btn btn-primary my-2',
@@ -45,14 +47,14 @@
         %caption Table of Events
         %thead.thead-dark
           %tr
-            %th{ scope: 'row' } #
-            %th{ scope: 'row' } Name
-            %th{ scope: 'row' } State
-            %th{ scope: 'row' } County
-            %th{ scope: 'row' } Start Time
-            %th{ scope: 'row' } End Time
-            %th{ scope: 'row' } Description
-            %th{ scope: 'row' } Link
+            %th{ scope: 'col' } #
+            %th{ scope: 'col' } Name
+            %th{ scope: 'col' } State
+            %th{ scope: 'col' } County
+            %th{ scope: 'col' } Start Time
+            %th{ scope: 'col' } End Time
+            %th{ scope: 'col' } Description
+            %th{ scope: 'col' } Link
         %tbody
           - @events.each_with_index do |event, index|
             %tr
