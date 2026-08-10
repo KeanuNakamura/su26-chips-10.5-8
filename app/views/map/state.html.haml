@@ -13,9 +13,9 @@
         .card-header#actionmap-counties-details-header
           %h2.text-center
             %button.btn.btn-link.text-dark.collapsed{'data-bs-toggle': 'collapse',
-                                           'data-bs-target': '#actionmap-state-details-collapse',
-                                           'aria-expanded': false,
-                                           'aria-controls': 'actionmap-state-details-collapse'}
+                                                     'data-bs-target': '#actionmap-state-details-collapse',
+                                                     'aria-expanded': 'false',
+                                                     'aria-controls': 'actionmap-state-details-collapse'}
               Counties in #{@state.name}
         .collapse#actionmap-state-details-collapse{'data-parent':     '#actionmap-counties-details-header',
                                                    'aria-labelledby': 'actionmap-counties-details-header'}
