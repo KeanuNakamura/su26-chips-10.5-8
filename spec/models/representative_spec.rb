@@ -60,7 +60,7 @@ RSpec.describe Representative do
       end.not_to change(described_class, :count)
     end
 
-    it 'stores representative information from Geocodio' do
+    it 'stores representative information from Geocodio' do # rubocop:disable RSpec/ExampleLength, RSpec/MultipleExpectations
       rep = described_class.find_by(ocdid: '412345')
       expect(rep.name).to eq('Jane Doe')
       expect(rep.title).to eq('representative')
@@ -72,7 +72,7 @@ RSpec.describe Representative do
       expect(rep.photo_url).to include('B00039')
     end
 
-    it 'handles missing optional fields' do
+    it 'handles missing optional fields' do # rubocop:disable RSpec/ExampleLength
       official = {
         'name' => 'Jane Doe',
         'type' => 'representative',
