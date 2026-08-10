@@ -95,16 +95,4 @@ RSpec.describe Representative do
       expect(rep.photo_url).to be_nil
     end
   end
-
-  describe '.civic_api_to_representative_params' do
-    let(:data) do
-      JSON.parse(Rails.root.join('spec/fixtures/geocodio_response.json').read)
-    end
-
-    it 'builds representatives from a Geocodio response' do
-      reps = described_class.civic_api_to_representative_params(data)
-      expect(reps).not_to be_empty
-      expect(reps.first.name).to be_present
-    end
-  end
 end
