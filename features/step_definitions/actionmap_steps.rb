@@ -31,14 +31,64 @@ Then /I click the state "(\w\w)"/i do |state|
 end
 
 Then /I click the county "(.*)"/i do |county_name|
-  # Same as above, you might find this helpful.
+  selector =
+    county_path_selector('data-county-name', county_name)
+
+  expect(page).to have_css(selector, wait: 10)
+  visit_county_representatives(county_name)
 end
 
 Then /I click the county with FIPS Code "(.*)"/i do |fips_code|
-  # Same as above, you might find this helpful.
+  selector = county_path_selector(
+    'data-county-fips-code',
+    fips_code.rjust(3, '0')
+  )
+  county_region = first(selector, wait: 10)
+  visit_county_representatives(
+    county_region['data-county-name']
+  )
 end
 
-Then /I should see (\d+) (?:states|counties)/i do |count|
-  # How many counties should the map render
-  # You might use this as a check that the right number of elements are rendered.
+Then /I should see (\d+) (states|counties)/i do |count, region_type|
+  attribute = region_type.casecmp('states').zero? ? 'data-state-symbol' : 'data-county-name'
+  selector = "path[#{attribute}]"
+
+  expect(page).to have_css(selector, minimum: 1, wait: 10)
+
+  region_names = all(selector).pluck(attribute)
+  expect(region_names.uniq.size).to eq(count.to_i)
 end
+
+When /I search for representatives in "(.*)"/i do |query|
+  visit search_representatives_path(address: query)
+end
+
+Given /^there are no representative records$/ do
+  expect(Representative.count).to eq(0)
+end
+
+Then /^(\d+) representative records should exist$/ do |count|
+  expect(Representative.count).to eq(count.to_i)
+end
+
+module ActionMapStepHelpers
+  INFO_CONTAINER_ID = 'actionmap-info-container'
+
+  def current_state_symbol
+    state_json =
+      find_by_id(INFO_CONTAINER_ID, visible: :all)['data-state']
+
+    JSON.parse(state_json).fetch('symbol')
+  end
+
+  def county_path_selector(attribute, value)
+    %(path[#{attribute}="#{value}"])
+  end
+
+  def visit_county_representatives(county_name)
+    address = "#{county_name}, #{current_state_symbol}"
+    visit search_representatives_path(address: address)
+  end
+end
+
+World(ActionMapStepHelpers)
