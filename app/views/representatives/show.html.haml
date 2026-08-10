@@ -5,9 +5,9 @@
 
       - if @representative.photo_url.present?
         = image_tag @representative.photo_url,
-          alt:@representative.name, 
-          class:'img-fluid mb-3', 
-          style:'max-width: 250px;'
+                    alt: @representative.name,
+                    class: 'img-fluid mb-3',
+                    style: 'max-width: 250px;'
 
       %p
         %strong Office:
@@ -27,11 +27,11 @@
       %p
         %strong Website:
         - if @representative.website.present?
-          = link_to @representative.website, @representative.website, target:'_blank'
+          = link_to @representative.website, @representative.website,
+                    target: '_blank', rel: 'noopener noreferrer'
         - else
           Not available
-      
+
       %p
         %strong Twitter:
         = @representative.twitter.presence || 'Not available'
-
