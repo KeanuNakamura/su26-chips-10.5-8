@@ -8,7 +8,20 @@ class MyNewsItemsController < ApplicationController
   before_action :set_news_item, only: %i[edit update destroy]
 
   def new
-    @news_item = NewsItem.new
+    @issue = params[:issue]
+  end
+
+  def search
+    @issue = params[:issue].to_s.strip
+ 
+    if @issue.blank?
+      redirect_to representative_new_my_news_item_path(@representative),
+        alert: 'Choose an issue to search for.'
+      return
+    end
+
+  @articles = []
+
   end
 
   def edit; end

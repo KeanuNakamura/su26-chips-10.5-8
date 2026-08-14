@@ -145,3 +145,20 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 World(FactoryBot::Syntax::Methods)
+
+
+Given /^I am logged in$/ do
+  user = User.find_or_create_by!(uid: '12345', provider: 0) do |u|
+    u.email = 'test@example.com'
+    u.first_name = 'Test'
+    u.last_name = 'User'
+  end
+
+  OmniAuth.config.mock_auth[:developer] = OmniAuth::AuthHash.new(
+    provider: 'developer',
+    uid: user.uid,
+    info: { email: user.email, first_name: user.first_name, last_name: user.last_name }
+  )
+
+  visit '/auth/developer/callback'
+end
