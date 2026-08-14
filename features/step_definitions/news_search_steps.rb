@@ -35,7 +35,7 @@ end
 
 Then /^I should land on the profile page for "([^"]*)"$/ do |name|
   expected = representative_path(Representative.find_by!(name: name))
-  expect(URI.parse(current_url).path).to eq expected
+  expect(page).to have_current_path(expected, wait: 5)
 end
 
 Given /^the following representatives exist:$/ do |table|
@@ -51,4 +51,8 @@ Given /^I am logged in$/ do
   )
 
   visit '/auth/github/callback'
+end
+
+When /^I follow the representative link$/ do
+  find('#ci-search-representative a').click
 end

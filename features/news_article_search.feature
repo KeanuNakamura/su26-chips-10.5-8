@@ -41,9 +41,9 @@ Feature: Choosing a representative and issue to search news for
   Scenario: The representative links to their profile page
     When I select "Climate Change" from "Issue"
     And I press "Search"
-    And I follow "Gavin Newsom"
+    And I follow the representative link
     Then I should land on the profile page for "Gavin Newsom"
-    
+
   Scenario: A different representative can be chosen
     When I select "Lateefah Simon" from "Representative"
     And I select "Immigration" from "Issue"
