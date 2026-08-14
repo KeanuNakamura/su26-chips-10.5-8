@@ -20,11 +20,25 @@
 class NewsItem < ApplicationRecord
   # TODO: this belongs to a user (creator_id)
   belongs_to :representative
-  ISSUES = ["Free Speech", "Immigration", "Terrorism", "Social Security and
-Medicare", "Abortion", "Student Loans", "Gun Control", "Unemployment",
-"Climate Change", "Homelessness", "Racism", "Tax Reform", "Net
-Neutrality", "Religious Freedom", "Border Security", "Minimum Wage",
-"Equal Pay"]
+  ISSUES = [
+    'Free Speech',
+    'Immigration',
+    'Terrorism',
+    'Social Security and Medicare',
+    'Abortion',
+    'Student Loans',
+    'Gun Control',
+    'Unemployment',
+    'Climate Change',
+    'Homelessness',
+    'Racism',
+    'Tax Reform',
+    'Net Neutrality',
+    'Religious Freedom',
+    'Border Security',
+    'Minimum Wage',
+    'Equal Pay'
+  ].freeze
 
   def self.issues
     ISSUES

@@ -1,0 +1,22 @@
+.row
+  .col-12.col-md-10.offset-md-1
+    %h1.text-center.mb-4 Edit News Item
+
+    %p#ci-search-representative
+      %strong Representative:
+      = link_to @representative.name, representative_path(@representative)
+
+    %p#ci-search-issue
+      %strong Issue:
+      = @issue
+
+    %h2.h5.mt-4 Select an article:
+
+    - if @articles.blank?
+      .alert.alert-info#ci-no-articles
+        Article results are not wired up yet.
+
+    .mt-4
+      = link_to representative_news_items_path(@representative), class: 'btn btn-info' do
+        View News Articles
+        %i.fas.fa-arrow-right

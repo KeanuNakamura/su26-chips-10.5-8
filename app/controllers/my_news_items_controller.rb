@@ -13,15 +13,14 @@ class MyNewsItemsController < ApplicationController
 
   def search
     @issue = params[:issue].to_s.strip
- 
+
     if @issue.blank?
       redirect_to representative_new_my_news_item_path(@representative),
-        alert: 'Choose an issue to search for.'
+                  alert: 'Choose an issue to search for.'
       return
     end
 
-  @articles = []
-
+    @articles = []
   end
 
   def edit; end

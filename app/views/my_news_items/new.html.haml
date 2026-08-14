@@ -1,16 +1,24 @@
 .row
-  .col-12.col-md-6.offset-md-3.col-xl-4.offset-xl-4
-    %h1.text-center New news article
+  .col-12.col-md-8.offset-md-2.col-xl-6.offset-xl-3
+    %h1.text-center.mb-4 Edit News Item
 
-  .col-12.col-md-6.offset-md-3.col-xl-4.offset-xl-4
-    = render 'form', news_item:            @news_item,
-                     form_url:             representative_new_my_news_item_path(@representative),
-                     form_method:          :post,
-                     representatives_list: @representatives_list,
-                     disabled_for_user:    false
-  .col-12.col-md-6.offset-md-3.col-xl-4.offset-xl-4
-    .clearfix.mt-3
-      .float-right
-        = link_to representative_news_items_path(@representative), class: 'btn btn-info' do
-          View news articles
-          %i.fas.fa-arrow-right
+    = form_with url: search_my_news_items_path, method: :get, local: true, id: 'ci-news-search-form' do
+      .form-group.row.mb-3.align-items-center
+        .col-sm-4
+          = label_tag :representative_id, 'Representative', class: 'col-form-label'
+        .col-sm-8
+          = select_tag :representative_id,
+                       options_for_select(@representatives_list, @representative&.id),
+                       class: 'form-control'
+
+      .form-group.row.mb-4.align-items-center
+        .col-sm-4
+          = label_tag :issue, 'Issue', class: 'col-form-label'
+        .col-sm-8
+          = select_tag :issue,
+                       options_for_select(NewsItem.issues, @issue),
+                       { include_blank: 'Select an issue...',
+                         class: 'form-control' }
+
+      .text-center
+        = submit_tag 'Search', class: 'btn btn-primary', id: 'ci-news-search-button'
