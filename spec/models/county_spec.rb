@@ -1,5 +1,21 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: counties
+#
+#  id         :integer          not null, primary key
+#  fips_class :string(2)        not null
+#  fips_code  :integer          not null
+#  name       :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  state_id   :integer          not null
+#
+# Indexes
+#
+#  index_counties_on_state_id  (state_id)
+#
 require 'rails_helper'
 
 RSpec.describe County do
