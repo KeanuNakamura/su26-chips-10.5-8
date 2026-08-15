@@ -26,12 +26,25 @@ class MyNewsItemsController < ApplicationController
   def edit; end
 
   def create
-    @news_item = NewsItem.new(news_item_params)
+    article = selected_article
+
+    if article.blank?
+      redirect_to search_results_path, alert: 'Choose an article to save.'
+      return
+    end
+
+    @news_item = @representative.news_items.new(
+      title:       article[:title],
+      link:        article[:url],
+      description: article[:description],
+      issue:       params[:issue]
+    )
+
     if @news_item.save
       redirect_to representative_news_item_path(@representative, @news_item),
                   notice: 'News item was successfully created.'
     else
-      render :new, status: :unprocessable_entity
+      redirect_to search_results_path, alert: 'Unable to save that article.'
     end
   end
 
@@ -52,6 +65,22 @@ class MyNewsItemsController < ApplicationController
 
   private
 
+
+  def selected_article
+    url = params[:article_url].to_s
+    return if url.blank?
+
+    articles = params.permit(articles: %i[title description url])[:articles]
+    return if articles.blank?
+
+    match = articles.to_h.values.find { |attrs| attrs['url'] == url }
+    match&.with_indifferent_access
+  end
+
+  def search_results_path
+    representative_search_my_news_item_path(@representative, issue: params[:issue])
+  end
+  
   def set_representative
     @representative = Representative.find(
       params[:representative_id]

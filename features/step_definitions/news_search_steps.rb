@@ -56,3 +56,17 @@ end
 When /^I follow the representative link$/ do
   find('#ci-search-representative a').click
 end
+
+When /^I choose the article "([^"]*)"$/ do |title|
+  find('.form-check', text: title).find('input[type=radio]').choose
+end
+
+Then /^a news item should exist with:$/ do |table|
+  attrs = table.rows_hash
+  representative = Representative.find_by!(name: attrs.delete('representative'))
+  item = NewsItem.find_by!(title: attrs['title'], representative: representative)
+
+  expect(item.link).to eq(attrs['link'])
+  expect(item.description).to eq(attrs['description'])
+  expect(item.issue).to eq(attrs['issue'])
+end
