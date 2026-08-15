@@ -71,6 +71,17 @@ Then /^(\d+) representative records should exist$/ do |count|
   expect(Representative.count).to eq(count.to_i)
 end
 
+Given('a representative named {string} exists') do |name|
+  Representative.find_or_create_by!(name: name) do |representative|
+    representative.ocdid = 'cukes-ocdid'
+    representative.title = 'representative'
+  end
+end
+
+Then('I should see {int} article radio buttons') do |count|
+  expect(page).to have_css('input[type=radio][name=article_url]', count: count)
+end
+
 module ActionMapStepHelpers
   INFO_CONTAINER_ID = 'actionmap-info-container'
 

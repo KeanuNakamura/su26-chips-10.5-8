@@ -27,6 +27,12 @@ module NavigationHelpers
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
 
+    when /^the new news article page for representative "(.+)"$/
+      representative_new_my_news_item_path(Representative.find_by!(name: $1))
+
+    when /^the news article search results page for representative "(.+)"$/
+      representative_search_my_news_item_path(Representative.find_by!(name: $1), issue: 'Immigration')
+
     else
       begin
         page_name =~ /^the (.*) page$/

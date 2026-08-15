@@ -20,7 +20,7 @@ class MyNewsItemsController < ApplicationController
       return
     end
 
-    @articles = []
+    @articles = currents_articles_for(@issue)
   end
 
   def edit; end
@@ -68,5 +68,15 @@ class MyNewsItemsController < ApplicationController
 
   def news_item_params
     params.require(:news_item).permit(:title, :issue, :description, :link, :representative_id)
+  end
+
+  def currents_articles_for(issue)
+    return [] if issue.blank?
+
+    api_key = ENV.fetch('CURRENTS_API_KEY', Rails.application.credentials.dig(:CURRENTS_API_KEY))
+    CurrentsClient.new(api_key).search_by_issue(issue)
+  rescue ArgumentError, CurrentsClient::Error, Faraday::Error
+    flash.now[:alert] = 'Unable to fetch news articles. Please try again.'
+    []
   end
 end
