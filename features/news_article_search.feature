@@ -53,3 +53,10 @@ Feature: Choosing a representative and issue to search news for
   Scenario: Searching with no issue is rejected
     When I press "Search"
     Then I should see "Choose an issue to search for"
+
+  Scenario: Search returns the top 5 articles as radio buttons
+    When I select "Immigration" from "Issue"
+    And I press "Search"
+    Then I should see "Immigration Reform Update"
+    And I should see "Border Policy Hearing"
+    And I should see 5 article radio buttons

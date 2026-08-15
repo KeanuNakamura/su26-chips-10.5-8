@@ -1,0 +1,30 @@
+{
+    "status": "ok",
+    "news": [
+        {
+            "title": "Immigration Reform Update",
+            "description": "Congress debates a new immigration bill.",
+            "url": "https://example.com/immigration-1"
+        },
+        {
+            "title": "Border Policy Hearing",
+            "description": "Senate holds a hearing on border policy.",
+            "url": "https://example.com/immigration-2"
+        },
+        {
+            "title": "Visa Backlog Report",
+            "description": "A report covers growing visa backlogs.",
+            "url": "https://example.com/immigration-3"
+        },
+        {
+            "title": "Asylum Case Review",
+            "description": "Courts review a set of asylum cases.",
+            "url": "https://example.com/immigration-4"
+        },
+        {
+            "title": "Work Permit Changes",
+            "description": "New rules are proposed for work permits.",
+            "url": "https://example.com/immigration-5"
+        }
+    ]
+}

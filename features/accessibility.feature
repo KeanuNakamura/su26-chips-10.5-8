@@ -55,3 +55,17 @@ Scenario: The Events Page
 Scenario: The California State Map Page
     Given I am on the state page for "CA"
     Then the page should be axe clean
+
+@a11y @iter2
+Scenario: The New News Article Search Page
+    Given a representative named "Jane Doe" exists
+    And I am logged in
+    And I am on the new news article page for representative "Jane Doe"
+    Then the page should be axe clean
+
+@a11y @iter2
+Scenario: The News Article Search Results Page
+    Given a representative named "Jane Doe" exists
+    And I am logged in
+    And I am on the news article search results page for representative "Jane Doe"
+    Then the page should be axe clean

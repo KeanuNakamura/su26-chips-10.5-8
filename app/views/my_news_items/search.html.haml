@@ -1,6 +1,6 @@
 .row
   .col-12.col-md-10.offset-md-1
-    %h1.text-center.mb-4 Edit News Item
+    %h1.text-center.mb-4 Search results
 
     %p#ci-search-representative
       %strong Representative:
@@ -14,9 +14,26 @@
 
     - if @articles.blank?
       .alert.alert-info#ci-no-articles
-        Article results are not wired up yet.
+        No articles were found for this issue.
+    - else
+      = form_tag representative_new_my_news_item_path(@representative), method: :get do
+        %fieldset
+          %legend Select an article
+          - @articles.each_with_index do |article, index|
+            .form-check.mb-3
+              = radio_button_tag 'article_url', article[:url], index.zero?,
+                                 id: "article_#{index}", class: 'form-check-input'
+              = label_tag "article_#{index}", article[:title], class: 'form-check-label'
+              %p= article[:description]
+              %p
+                = link_to article[:url], article[:url], class: 'link-dark',
+                          target: '_blank', rel: 'noopener noreferrer'
+        = hidden_field_tag :issue, @issue
+        = submit_tag 'Save', class: 'btn btn-primary'
 
     .mt-4
+      = link_to representative_new_my_news_item_path(@representative), class: 'btn btn-info' do
+        Back to search
       = link_to representative_news_items_path(@representative), class: 'btn btn-info' do
         View News Articles
         %i.fas.fa-arrow-right
