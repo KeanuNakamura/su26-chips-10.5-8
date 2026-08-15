@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CurrentsClient do
@@ -24,5 +26,13 @@ RSpec.describe CurrentsClient do
       description: 'Congress debates a new immigration bill.',
       url:         'https://example.com/immigration-1'
     )
+  end
+
+  it 'requests /v1/search with the issue as keywords' do
+    described_class.new('test-key').search_by_issue('Free Speech')
+
+    expect(WebMock).to have_requested(:get, 'https://api.currentsapi.services/v1/search')
+      .with(query: hash_including('keywords' => 'Free Speech', 'language' => 'en',
+                                  'apiKey' => 'test-key'))
   end
 end
