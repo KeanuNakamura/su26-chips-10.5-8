@@ -6,14 +6,16 @@ require 'json'
 class CurrentsClient
   class Error < StandardError; end
 
-  BASE_URL = 'https://api.currentsapi.services/v1'
+  # Trailing slash is required. Faraday treats the last path segment as a file,
+  # so 'https://.../v1' + 'search' becomes 'https://.../search'.
+  BASE_URL = 'https://api.currentsapi.services/v1/'
   RESULTS_LIMIT = 5
 
   def initialize(api_key)
     raise ArgumentError, 'API key is missing' if api_key.blank?
+
     @api_key = api_key
     @conn = Faraday.new(url: BASE_URL) do |faraday|
-      faraday.request :json
       faraday.response :json
       faraday.adapter Faraday.default_adapter
     end
@@ -21,8 +23,12 @@ class CurrentsClient
 
   def search_by_issue(issue)
     response = @conn.get('search') do |request|
-      request.params = { keywords: issue, language: 'en', page_size: RESULTS_LIMIT }
-      request.headers['Authorization'] = "Bearer #{@api_key}"
+      request.params = {
+        keywords: issue,
+        language: 'en',
+        apiKey:   @api_key
+      }
+      request.headers['Authorization'] = @api_key
       request.headers['Accept'] = 'application/json'
     end
 
