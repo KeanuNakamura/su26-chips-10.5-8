@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :news_items, only: %i[index show]
   end
 
+  get '/my_news_items/search', to: 'my_news_items#search', as: :search_my_news_items
   get '/representatives/:representative_id/my_news_item/new' => 'my_news_items#new',
       :as                                                     => :representative_new_my_news_item
   post '/representatives/:representative_id/my_news_item/new', to: 'my_news_items#create'
@@ -42,3 +43,4 @@ Rails.application.routes.draw do
 
   get '/search/(:address)' => 'search#search', :as => 'search_representatives'
 end
+
