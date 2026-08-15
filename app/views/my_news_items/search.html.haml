@@ -16,7 +16,7 @@
       .alert.alert-info#ci-no-articles
         No articles were found for this issue.
     - else
-      = form_tag representative_new_my_news_item_path(@representative), method: :get do
+      = form_tag representative_new_my_news_item_path(@representative), method: :post do
         %fieldset
           %legend.visually-hidden Select an article
           - @articles.each_with_index do |article, index|
@@ -34,6 +34,10 @@
                 %p
                   %strong Description:
                   = article[:description]
+              = hidden_field_tag "articles[#{index}][title]", article[:title]
+              = hidden_field_tag "articles[#{index}][description]",
+                                 article[:description]
+              = hidden_field_tag "articles[#{index}][url]", article[:url]
         = hidden_field_tag :issue, @issue
         .text-center
           = submit_tag 'Save', class: 'btn btn-primary'

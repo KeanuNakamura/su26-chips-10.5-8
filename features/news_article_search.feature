@@ -60,3 +60,19 @@ Feature: Choosing a representative and issue to search news for
     Then I should see "Immigration Reform Update"
     And I should see "Border Policy Hearing"
     And I should see 5 article radio buttons
+
+  Scenario: Saving a selected article stores it in the database
+    When I select "Immigration" from "Issue"
+    And I press "Search"
+    And I choose the article "Border Policy Hearing"
+    And I press "Save"
+    Then I should see "News item was successfully created."
+    And I should see "Border Policy Hearing"
+    And I should see "https://example.com/immigration-2"
+    And I should see "Senate holds a hearing on border policy."
+    And a news item should exist with:
+        | title          | Border Policy Hearing                    |
+        | link           | https://example.com/immigration-2        |
+        | description    | Senate holds a hearing on border policy. |
+        | issue          | Immigration                              |
+        | representative | Gavin Newsom                             |
